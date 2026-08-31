@@ -1,18 +1,20 @@
-# Linguagens Formais — minhas anotações
+# Linguagens Formais
 
-## Alfabeto Σ = {a, b, c}
+## 1 Considere Σ = a , b , c
 
-- Tem **3 símbolos** nesse alfabeto.
-- Os símbolos são: `a`, `b`, `c`.
-- O `a` tá no alfabeto? **Sim**, tranquilo.
-- E o `d`? **Não**, esse aí não faz parte.
-- Uma palavra usando esses símbolos: `caba`, `aba` — dá pra montar várias combinando eles.
+Responda:
+
+    Quantos símbolos existem no alfabeto? 3
+    Quais são os símbolos? a,b, c
+    O símbolo a pertence ao alfabeto? Sim
+    O símbolo d pertence ao alfabeto? Não
+    Escreva uma palavra formada por símbolos desse alfabeto. acaba,baba,babaca.
 
 ---
 
-## Alfabeto Σ = {0, 1}
+## 2 Considere Alfabeto Σ = {0, 1}
 
-Testando se umas sequências são palavras válidas:
+Classifique cada sequência como palavra válida ou não válida: 
 
 | Sequência | Válida? | Por quê |
 |---|---|---|
@@ -22,102 +24,104 @@ Testando se umas sequências são palavras válidas:
 | 111 | Sim | só usa símbolos válidos |
 | 10a | Não | o `a` não pertence a Σ |
 
-A regra é simples: se **todo símbolo** da sequência estiver dentro de Σ, a palavra é válida. Se aparecer um intruso, já era.
+**Todo símbolo** da sequência estiver dentro de Σ, a palavra é válida.
 
 ---
 
-## Verdadeiro ou falso — Σ = {0, 1}
+## 3 Considere: Σ = 0 , 1
 
-- `0 ∈ Σ` → **Verdadeiro**, o 0 está no conjunto.
-- `1 ∈ Σ` → **Verdadeiro**, o 1 também está.
-- `01 ∈ Σ` → **Falso**. Cuidado aqui: `01` é uma palavra (dois símbolos juntos), não um símbolo isolado, então não pertence ao alfabeto.
-- `01 ∈ Σ*` → **Verdadeiro**. Isso sim, porque Σ* é o fecho de Kleene — todas as combinações possíveis de símbolos do alfabeto, incluindo palavras com mais de um caractere.
-- `2 ∈ Σ` → **Falso**, não existe esse símbolo aqui.
+Determine se as afirmações são verdadeiras ou falsas:
+
+
+- `0 ∈ Σ` → **Verdadeiro**.
+- `1 ∈ Σ` → **Verdadeiro**.
+- `01 ∈ Σ` → **Falso**.
+- `01 ∈ Σ*` → **Verdadeiro**. Σ* é o fecho de Kleene — todas as combinações possíveis de símbolos do alfabeto, incluindo palavras com mais de um caractere.
+- `2 ∈ Σ` → **Falso**.
 - `101 ∈ Σ*` → **Verdadeiro**, é uma sequência formada só com 0 e 1, então está no fecho de Kleene.
 
-💡 Resumindo: **Σ** guarda só os símbolos individuais. **Σ*** guarda todas as palavras possíveis feitas com esses símbolos (inclusive a palavra vazia).
+**Σ** guarda só os símbolos individuais. **Σ*** guarda todas as palavras possíveis feitas com esses símbolos (inclusive a palavra vazia).
 
 ---
 
-## Linguagem L = {0, 01, 011, 0111}
+## 4 Considere: L = 0 , 01 , 011 , 0111
 
-Essa aqui é simples: só pertence à linguagem quem tá literalmente na lista.
+Determine se cada palavra pertence à linguagem:
 
 - `0 ∈ L` → Sim
 - `01 ∈ L` → Sim
 - `0111 ∈ L` → Sim
-- `10 ∈ L` → Não (não tá na lista)
-- `111 ∈ L` → Não (não tá na lista)
+- `10 ∈ L` → Não 
+- `111 ∈ L` → Não
 - `011 ∈ L` → Sim
 
 ---
 
-## Linguagem L = { bⁿ | n ≥ 1 }
+## 5 Considere: L = b n ∣ n ≥ 1
 
-- As cinco primeiras palavras: `b`, `bb`, `bbb`, `bbbb`, `bbbbb`
-- O que significa `bⁿ`? É simplesmente "*n* repetições do símbolo b" — bota quantos `b`s o `n` mandar.
-- `bbbbbb` pertence à linguagem? **Sim**, é só um monte de b's seguidos (6 no caso).
-- E a palavra vazia (`ε`)? **Não**, porque a condição é `n ≥ 1`, ou seja, precisa ter **pelo menos um** b.
+    Escreva as cinco primeiras palavras. b, bb, bbb, bbbb, bbbbb
+    Explique o significado de b^n. n ocorrencias de b
+    A palavra bbbbbb pertence à linguagem? Sim
+    A palavra vazia ( ε ) pertence à linguagem? Não
+---
+
+## 6 Exercício para o estudante
+
+Explique, com suas próprias palavras, a diferença entre:
+A) L = ∅
+B) L = ε
+
+Depois responda:
+
+    Qual delas possui uma palavra? B
+    Qual delas não possui nenhuma palavra? A
+    Qual é o comprimento da palavra ε ? Zero
+
+
 
 ---
 
-## L = ∅ vs L = {ε}
+## 7 Considere G = (S,A,0,1,P,S) com P=S→0A, A→1
 
-Isso aqui costuma confundir, mas a diferença é simples:
+Identifique
+    Conjunto de variáveis**: {S, A}
+    Conjunto de terminais**: {0, 1}
+    Conjunto de produções**: {S → 0 A, A → 1}
+    Símbolo inicial**: S
+    Palavras geradas**: {01}
 
-- **L = ∅** → é uma linguagem **vazia**, sem nenhuma palavra dentro. Nem a palavra vazia está lá — é tipo uma caixa completamente vazia.
-- **L = {ε}** → é uma linguagem que **tem uma palavra**, e essa palavra é a palavra vazia. É tipo uma caixa que não tá vazia, só que dentro dela tem "nada escrito" (o ε).
+-------------------------------------------------
 
-Respondendo direto:
+## 8 Considere S→0S
+Começando com S: 
+    Aplique a regra uma vez.  S→0S→01
+    Aplique a regra duas vezes. S→0S → 00S →001
+    Aplique a regra três vezes. S→0S→00S→000S→0001
 
-- Qual das duas tem uma palavra? **{ε}**
-- Qual não tem nenhuma? **∅**
-- Qual o tamanho da palavra ε? **Zero** (ela não tem símbolo nenhum, só existe como conceito)
+------------------------------------------------
 
----
+## 9 Utilizando:G:{S→aSS→b}
+gere:aaab
 
-## Gramática G = (S, A, {0,1}, P, S)
 
-- Variáveis: `{S, A}`
-- Terminais: `{0, 1}`
-- Produções: `S → 0A` e `A → 1`
-- Símbolo inicial: `S`
-- Palavra que ela gera: `{01}`
-
-É bem direta: começa no `S`, troca por `0A`, depois troca o `A` por `1`, e pronto, chegou em `01`.
-
----
-
-## Aplicando a regra várias vezes (S → 0S | 0A → 1, tipo recursiva)
-
-- 1 vez: `S → 0A → 01`
-- 2 vezes: `S → 0A → 01 → 001`
-- 3 vezes: `S → 0A → 01 → 001 → 0001`
-- Derivação completa: `S → 0A → 01 → 001 → 0001`
-
-Basicamente cada vez que aplica de novo, entra mais um `0` na frente.
+Escreva todos os passos da derivação.
+ S→aS→aaS→aaaS→aaab
 
 ---
 
-## Gerando `aaab`
+## 10 Considere novamente:G:{S→0SS→1}
+Determine se cada palavra pode ser gerada:
+1
+01
+001
+0001
+101
+1001
+Para as palavras que podem ser geradas, apresente a derivação completa.
 
-Regra tipo `S → aS | b`:
-
-```
-S → aS → aaS → aaaS → aaab
-```
-
-Cada passo troca o `S` por `a` seguido de um novo `S`, até no final trocar o `S` por `b` e fechar a palavra.
-
----
-
-## Testando se palavras são geradas pela gramática (regra tipo S → 0S | 1)
-
-- `1` → **Sim**, derivação: `S → 0S → 01`
-- `01` → **Sim**, mesma derivação: `S → 0S → 01`
-- `001` → **Sim**, derivação: `S → 0S → 01`
-- `0001` → **Sim**, derivação: `S → 0S → 01`
-- `101` → **Não**
-- `1001` → **Não**
-
-*(obs: dá pra notar que as derivações acima parecem repetidas — só cabe revisar se cada palavra realmente exige um número diferente de aplicações da regra `S → 0S`, tipo `001` deveria ser `S → 0S → 00S → 001`)*
+ **1**: Sim, derivação: S → 0 S → 0 1
+ **01**: Sim, derivação: S → 0 S → 0 1
+ **001**: Sim, derivação: S → 0 S → 0 1
+ **0001**: Sim, derivação: S → 0 S → 0 1
+ **101**: Não
+ **1001**: Não
